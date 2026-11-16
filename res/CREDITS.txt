@@ -1,0 +1,2 @@
+res/tileset.png: tiles from Kenney's "Tiny Dungeon" pack (www.kenney.nl),
+license CC0 1.0 (no attribution required, credited here anyway).
