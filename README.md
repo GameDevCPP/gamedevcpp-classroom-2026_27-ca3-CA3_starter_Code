@@ -9,6 +9,10 @@ The goal of this assignment is to:
 
 This is the big one. CA3 is worth 60% of the module.
 
+## Deadlines
+* Soft deadline, for feedback: **11 December 2026**. Submit by this date if you want feedback before the hard deadline.
+* Hard deadline: **22 December 2026**.
+
 ## Theme
 
 **Drone.**
