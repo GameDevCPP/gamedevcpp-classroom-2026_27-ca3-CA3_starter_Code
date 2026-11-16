@@ -29,9 +29,11 @@ FetchContent_Declare(imgui-sfml
     # imgui-sfml 2.6.x (maintenance-only, per its own README) predates SFML's
     # early-2024 U8StringCharTraits change, so sf::Clipboard::getString()'s
     # return type no longer implicitly converts the way this line assumes.
-    # Patch to construct via the iterator-pair constructor instead, which
-    # works across the traits mismatch.
-    PATCH_COMMAND git apply --ignore-whitespace ${CMAKE_CURRENT_SOURCE_DIR}/patches/fix-clipboard-u8string.patch || true)
+    # Fix via a CMake script doing a literal string replace, not git apply:
+    # a context-diff patch is fragile against CRLF checkouts on Windows
+    # (core.autocrlf=true), which made "patch does not apply" show up for
+    # some students but not others depending on their git config.
+    PATCH_COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_SOURCE_DIR}/patches/fix-clipboard-u8string.cmake)
 FetchContent_MakeAvailable(imgui-sfml)
 
 # B2D - Box2D physics library (optional to use in your game, but the engine's
